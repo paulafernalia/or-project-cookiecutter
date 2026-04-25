@@ -26,7 +26,7 @@ jobs:
       
       - name: Create project from template
         run: |
-          cookiecutter . --no-input -o generated_project \
+          uv run cookiecutter . --no-input -o generated_project \
             repo_name=test-project \
             project_name="Test Project" \
             package_name=test_package
