@@ -54,3 +54,8 @@ jobs:
           cd generated_project/test-project
           uv tool run prek install
           uv tool run prek run --all-files
+
+      - name: Run main
+        run: |
+          cd generated_project/test-project
+          uv run python -m test_package
