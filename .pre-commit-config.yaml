@@ -1,0 +1,21 @@
+# Pre-commit config for validating the cookiecutter template itself
+# This runs on the template repository, not on generated projects
+# Excludes {{cookiecutter.*}} template directories
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: no-commit-to-branch
+        args: ['--branch', 'main', '--branch', 'master']
+      - id: trailing-whitespace
+      - id: check-yaml
+        args: [--allow-multiple-document, --unsafe]
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-merge-conflict
+
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.11.7
+    hooks:
+      - id: uv-lock
