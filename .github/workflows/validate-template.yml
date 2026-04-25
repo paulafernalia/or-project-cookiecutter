@@ -43,12 +43,9 @@ jobs:
           uv venv
           uv sync --dev
       
-      - name: Run pre-commit hooks
+      - name: Install and run pre-commit hooks
         run: |
           cd generated_project
           uv run prek install
-      
-      - name: Run pre-commit hooks
-        run: |
-          cd generated_project
           uv run prek run --all-files
+          
