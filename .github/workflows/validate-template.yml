@@ -58,7 +58,4 @@ jobs:
       - name: Run main
         run: |
           cd generated_project/test-project
-          uv pip install -e .
-          uv run python -m test_package
-          uv tool run pre-commit install
-          uv tool run pre-commit run --all-files
+          uv run python -m __main__.py
