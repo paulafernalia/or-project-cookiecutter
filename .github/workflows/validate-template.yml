@@ -36,14 +36,19 @@ jobs:
           cd generated_project
           git init
           git add .
-      
-      - name: Install dependencies and pre-commit
+
+      - name: Create virtual environment in generated project
         run: |
           cd generated_project
-          uv sync
-          uv run pre-commit install
+          uv venv
+          uv sync --dev
       
       - name: Run pre-commit hooks
         run: |
           cd generated_project
-          uv run pre-commit run --all-files
+          uv run prek install
+      
+      - name: Run pre-commit hooks
+        run: |
+          cd generated_project
+          uv run prek run --all-files
