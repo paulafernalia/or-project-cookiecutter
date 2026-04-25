@@ -59,4 +59,4 @@ jobs:
         run: |
           cd generated_project/test-project
           uv pip install -e .
-          uv run testpackage
+          uv exec testpackage
