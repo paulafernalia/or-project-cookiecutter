@@ -5,32 +5,32 @@ on: [ pull_request ]
 jobs:
   validate-template:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.13"
-      
+
       - name: Install uv
         uses: astral-sh/setup-uv@v4
-      
+
       - name: Create virtual environment
         run: uv venv
-      
+
       - name: Install cookiecutter
         run: uv add cookiecutter
-      
+
       - name: Create project from template
         run: |
           uv run cookiecutter . --no-input -o generated_project \
             repo_name=test-project \
             project_name="Test Project" \
             package_name=test_package
-      
+
       - name: Initialize git in generated project
         run: |
           cd generated_project
@@ -43,10 +43,9 @@ jobs:
           uv venv
           uv sync --dev
           uv pip install pre-commit
-      
+
       - name: Install and run pre-commit hooks
         run: |
           cd generated_project
-          pre-commit install
-          pre-commit run --all-files
-          
+          uv tool run pre-commit install
+          uv tool run pre-commit run --all-files
