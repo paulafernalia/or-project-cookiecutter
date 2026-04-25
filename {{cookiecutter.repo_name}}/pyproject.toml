@@ -12,7 +12,7 @@ dev = [
     "complexipy>=4.0.2",
     "mypy>=1.17.1",
     "{{cookiecutter.repo_name}}",
-    "pre-commit>=4.3.0",
+    "prek>=0.3.10",
     "pydantic>=2.11.7",
     "pytest>=8.4.1",
     "pytest-cov>=6.2.1",
@@ -41,6 +41,3 @@ strict = true
 [[tool.mypy.overrides]]
 module = "highspy.*"
 ignore_missing_imports = true
-
-[tool.uv.sources]
-{{cookiecutter.repo_name}} = { workspace = true }
