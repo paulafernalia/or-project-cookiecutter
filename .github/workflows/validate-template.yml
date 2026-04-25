@@ -36,6 +36,11 @@ jobs:
           cd generated_project
           git init -b main
           git add .
+      
+      - name: Create a branch and switch to it
+        run: |
+          cd generated_project
+          git checkout -b feature/test-pre-commit
 
       - name: Create virtual environment in generated project
         run: |
