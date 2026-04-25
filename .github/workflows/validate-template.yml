@@ -18,8 +18,11 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v4
       
+      - name: Create virtual environment
+        run: uv venv
+      
       - name: Install cookiecutter
-        run: uv pip install cookiecutter
+        run: uv add cookiecutter
       
       - name: Create project from template
         run: |
