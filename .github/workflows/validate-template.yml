@@ -52,5 +52,5 @@ jobs:
       - name: Install and run pre-commit hooks
         run: |
           cd generated_project/test-project
-          uv tool run prek install
-          uv tool run prek run --all-files
+          uv tool run pre-commit install
+          uv tool run pre-commit run --all-files
