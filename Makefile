@@ -3,6 +3,8 @@ hooks:
 
 upgrade:
 	uv lock --upgrade
+	cd {{cookiecutter.repo_name}}
+	uv lock --upgrade
 
 upgrade-hooks:
 	uv tool run prek autoupdate
