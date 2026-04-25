@@ -3,7 +3,7 @@ import logging.config
 import yaml
 from pathlib import Path
 
-def setup_logging():
+def setup_logging() -> None:
     """Configure logging using a YAML configuration file."""
     config_path = Path("conf/logging.yml")
 
