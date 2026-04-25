@@ -47,7 +47,7 @@ jobs:
           cd generated_project
           uv venv
           uv sync --dev
-          uv pip install pre-commit
+          uv pip install prek
 
       - name: Install and run pre-commit hooks
         run: |
