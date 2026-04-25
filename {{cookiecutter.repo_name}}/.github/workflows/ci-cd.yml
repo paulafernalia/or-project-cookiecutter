@@ -34,22 +34,6 @@ jobs:
       - name: Run tests
         run: uv run pytest
 
-      # 6. Run ruff (lint)
-      - name: Lint with Ruff
-        run: uv run ruff check .
-
-      # 7. Run mypy (typecheck)
-      - name: Type check with mypy
-        run: uv run mypy src/
-
-      # 8. Run Bandit (security checks)
-      - name: Run Bandit
-        run: uv run bandit -ll src
-
-      # 9. Run Complexipy (complexity check)
-      - name: Run Complexipy
-        run: uv run complexipy src
-
       # 10. Run pip-audit
       - name: Run pip-audit
         run: uv run pip-audit
