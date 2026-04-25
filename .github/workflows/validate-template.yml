@@ -34,7 +34,7 @@ jobs:
       - name: Initialize git in generated project
         run: |
           cd generated_project
-          git init
+          git init -b main
           git add .
 
       - name: Create virtual environment in generated project
