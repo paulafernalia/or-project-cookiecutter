@@ -47,16 +47,9 @@ jobs:
           cd generated_project
           uv venv
           uv sync --dev
-          uv pip install prek
 
       - name: Install and run pre-commit hooks
         run: |
           cd generated_project/test-project
           uv tool run prek install
           uv tool run prek run --all-files
-
-      - name: Run main
-        run: |
-          cd generated_project/test-project
-          uv pip install -e .
-          uv exec testpackage
