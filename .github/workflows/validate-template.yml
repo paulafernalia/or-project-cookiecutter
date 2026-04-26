@@ -29,7 +29,7 @@ jobs:
           uv run cookiecutter . --no-input -o generated_project \
             repo_name=test-project \
             project_name="Test Project" \
-            package_name=test_package
+            package_name=testpackage
 
       - name: Initialize git in generated project
         run: |
@@ -47,10 +47,9 @@ jobs:
           cd generated_project
           uv venv
           uv sync --dev
-          uv pip install prek
 
       - name: Install and run pre-commit hooks
         run: |
           cd generated_project/test-project
-          uv tool run pre-commit install
-          uv tool run pre-commit run --all-files
+          uv tool run prek install
+          uv tool run prek run --all-files

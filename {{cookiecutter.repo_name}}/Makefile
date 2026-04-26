@@ -5,17 +5,18 @@ run:
 	uv run -m {{cookiecutter.package_name}}
 
 ruff:
-	uv run ruff check --fix
+	uvx ruff check --fix
 
 test:
-	uv run pytest --cov=src
+	uvx pytest --cov=src
+
+mypy:
+	uvx mypy src/
 
 hooks:
-	uv run pre-commit install
-	uv run pre-commit run --all-files
+	uv install prek
+	uv run prek install
+	uv run prek run --all-files
 
-check-template:
-	uv run cruft check
-
-update-template:
-	uv run cruft update
+hooks-update:
+	uv run prek autoupdate

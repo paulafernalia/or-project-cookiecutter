@@ -1,6 +1,13 @@
+import logging
+
+from {{cookiecutter.package_name}}.conf import setup_logging
+
 def main() -> None:
     """Run package directly."""
-    raise NotImplementedError("This function is not implemented yet.")
+    setup_logging()
+
+    logger = logging.getLogger(__name__)
+    logger.info("Logging is working!")
 
 
 if __name__ == "__main__":
