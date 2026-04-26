@@ -26,30 +26,33 @@ jobs:
 
       - name: Create project from template
         run: |
-          uv run cookiecutter . --no-input -o generated_project \
-            repo_name=test-project \
-            project_name="Test Project" \
-            package_name=testpackage
+          uv run cookiecutter . --no-input -o .
 
       - name: Initialize git in generated project
         run: |
-          cd generated_project
+          cd knapsack-mip-solver
           git init -b main
           git add .
       
       - name: Create a branch and switch to it
         run: |
-          cd generated_project
-          git checkout -b feature/test-pre-commit
+          cd knapsack-mip-solver
+          git checkout -b feature/test-prek
 
       - name: Create virtual environment in generated project
         run: |
-          cd generated_project
+          cd knapsack-mip-solver
           uv venv
           uv sync --dev
 
-      - name: Install and run pre-commit hooks
+      - name: Install and run prek hooks
         run: |
-          cd generated_project/test-project
+          cd knapsack-mip-solver
           uv tool run prek install
           uv tool run prek run --all-files
+      
+      - name: Run main
+        run: |
+          cd knapsack-mip-solver
+          uv pip install -e .
+          uv run python -m knapsack
